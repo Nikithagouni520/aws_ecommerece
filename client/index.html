@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northstar Goods | Modern Ecommerce Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Northstar Goods home">
+        <span class="brand-mark">N</span>
+        <span>Northstar Goods</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#shop">Shop</a>
+        <a href="#collections">Collections</a>
+        <a href="#support">Support</a>
+      </nav>
+      <button class="cart-button" id="openCart" type="button" aria-label="Open cart">
+        <span>Cart</span>
+        <strong id="cartCount">0</strong>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <p class="eyebrow">Curated gear for brighter everyday routines</p>
+          <h1>Northstar Goods</h1>
+          <p>
+            Elevated essentials for movement, work, travel, and home. Built for
+            clean design, practical details, and quick checkout.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#shop">Shop arrivals</a>
+            <a class="secondary-action" href="#collections">View collections</a>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="Featured product preview">
+          <img
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1100&q=85"
+            alt="Bright orange running shoes"
+          />
+          <div class="hero-card">
+            <span>Featured</span>
+            <strong>AeroFlex Running Shoes</strong>
+            <small>$129.00</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Store promises">
+        <span>Free US shipping over $75</span>
+        <span>30 day returns</span>
+        <span>Secure checkout</span>
+        <span>Ships in 24 hours</span>
+      </section>
+
+      <section class="section" id="collections">
+        <div class="section-heading">
+          <p class="eyebrow">Shop by mood</p>
+          <h2>Collections that fit the day</h2>
+        </div>
+        <div class="collection-grid">
+          <article class="collection-card">
+            <img
+              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80"
+              alt="Streetwear outfit with neutral layers"
+            />
+            <div>
+              <span>Apparel</span>
+              <h3>Soft layers</h3>
+            </div>
+          </article>
+          <article class="collection-card">
+            <img
+              src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=900&q=80"
+              alt="Casual sneakers"
+            />
+            <div>
+              <span>Footwear</span>
+              <h3>Daily miles</h3>
+            </div>
+          </article>
+          <article class="collection-card">
+            <img
+              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80"
+              alt="Minimal watch and desk accessories"
+            />
+            <div>
+              <span>Tech and home</span>
+              <h3>Desk upgrades</h3>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shop-section" id="shop">
+        <div class="section-heading">
+          <p class="eyebrow">New season edit</p>
+          <h2>Popular products</h2>
+        </div>
+        <div class="toolbar">
+          <label class="search-field">
+            <span>Search products</span>
+            <input id="searchInput" type="search" placeholder="Search shoes, hoodie, tech..." />
+          </label>
+          <div class="filter-group" id="categoryFilters" aria-label="Product categories"></div>
+        </div>
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="feature-band" id="support">
+        <div>
+          <p class="eyebrow">Membership</p>
+          <h2>Earn credit every time you shop.</h2>
+          <p>
+            Join the Northstar list for early product drops, order updates, and
+            member-only perks without the inbox clutter.
+          </p>
+        </div>
+        <form class="newsletter" id="newsletterForm">
+          <input type="email" placeholder="Email address" aria-label="Email address" required />
+          <button type="submit">Join list</button>
+          <small id="newsletterMessage" role="status"></small>
+        </form>
+      </section>
+    </main>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+      <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+        <div class="cart-header">
+          <h2 id="cartTitle">Your cart</h2>
+          <button class="icon-button" id="closeCart" type="button" aria-label="Close cart">x</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-summary">
+          <div>
+            <span>Subtotal</span>
+            <strong id="cartSubtotal">$0.00</strong>
+          </div>
+          <button class="checkout-button" id="checkoutButton" type="button">Checkout</button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="modal-backdrop" id="checkoutModal" aria-hidden="true">
+      <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+        <button class="icon-button modal-close" id="closeCheckout" type="button" aria-label="Close checkout">
+          x
+        </button>
+        <h2 id="checkoutTitle">Checkout</h2>
+        <p>Enter delivery details to save the order in the store database.</p>
+        <form class="checkout-form" id="checkoutForm">
+          <label>
+            <span>Name</span>
+            <input name="customerName" type="text" autocomplete="name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            <span>Delivery address</span>
+            <textarea name="address" rows="4" autocomplete="street-address" required></textarea>
+          </label>
+          <button class="primary-action" type="submit">Place order</button>
+          <small id="orderMessage" role="status"></small>
+        </form>
+      </section>
+    </div>
+
+    <footer class="site-footer">
+      <span>Northstar Goods</span>
+      <span>Express, vanilla JavaScript, and AWS RDS-ready persistence.</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
